@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Linear Regression Model Prediction</title>
+</head>
+<body>
+    <h1>Nhập Dữ Liệu để Dự Đoán</h1>
+    <form id="prediction-form">
+        <label for="indus">INDUS:</label>
+        <input type="number" id="indus" name="indus" step="any" required><br>
+
+        <label for="nox">NOX:</label>
+        <input type="number" id="nox" name="nox" step="any" required><br>
+
+        <label for="rm">RM:</label>
+        <input type="number" id="rm" name="rm" step="any" required><br>
+
+        <label for="tax">TAX:</label>
+        <input type="number" id="tax" name="tax" step="any" required><br>
+
+        <label for="ptratio">PTRATIO:</label>
+        <input type="number" id="ptratio" name="ptratio" step="any" required><br>
+
+        <label for="lstat">LSTAT:</label>
+        <input type="number" id="lstat" name="lstat" step="any" required><br>
+
+        <button type="button" onclick="makePrediction()">Dự Đoán</button>
+    </form>
+    <p id="result"></p>
+
+    <script>
+        async function makePrediction() {
+            const indus = parseFloat(document.getElementById('indus').value);
+            const nox = parseFloat(document.getElementById('nox').value);
+            const rm = parseFloat(document.getElementById('rm').value);
+            const tax = parseFloat(document.getElementById('tax').value);
+            const ptratio = parseFloat(document.getElementById('ptratio').value);
+            const lstat = parseFloat(document.getElementById('lstat').value);
+
+            // Tạo mảng features với 6 đặc trưng
+            const features = [indus, nox, rm, tax, ptratio, lstat];
+
+            try {
+                const response = await fetch('/api/predict/', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ features: features })
+                });
+
+                const result = await response.json();
+                document.getElementById('result').innerText = 'Dự đoán: ' + result.prediction;
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('result').innerText = 'Có lỗi xảy ra.';
+            }
+        }
+    </script>
+</body>
+</html>
