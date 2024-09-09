@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -57,4 +57,223 @@
         }
     </script>
 </body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dự Đoán Khả Năng Trả Nợ</title>
+    
+</head>
+<body>
+    <h1>Nhập thông tin khách hàng</h1>
+    <form id="predictForm">
+        <label for="CODE_GENDER">CODE_GENDER:</label>
+        <select id="CODE_GENDER" name="CODE_GENDER" required>
+            <option value="M">M</option>
+            <option value="F">F</option>
+        </select><br><br>
+
+                    <label  for="FLAG_OWN_CAR">FLAG_OWN_CAR:</label>
+                    <select id="FLAG_OWN_CAR" name="FLAG_OWN_CAR" required>
+                        <option value="Y">Y</option>
+                        <option value="N">N</option>
+                    </select><br><br>
+
+                    <label  for="FLAG_OWN_REALTY">FLAG_OWN_REALTY:</label>
+                    <select  id="FLAG_OWN_REALTY" name="FLAG_OWN_REALTY" required>
+                        <option value="Y">Y</option>
+                        <option value="N">N</option>
+                    </select><br><br>
+
+                    <label  for="CNT_CHILDREN">CNT_CHILDREN:</label>
+                    <input type="number" id="CNT_CHILDREN" name="CNT_CHILDREN" required><br><br>
+
+                    <label  for="NAME_FAMILY_STATUS">NAME_FAMILY_STATUS:</label>
+                    <select  id="NAME_FAMILY_STATUS" name="NAME_FAMILY_STATUS" required>
+                        <option value="Separated">Separated</option>
+                        <option value="Married">Married</option>
+                        <option value="Single / not married">Single / not married</option>
+                        <option value="Widow">Widow</option>
+                        <option value="Civil marriage">Civil marriage</option>
+                    </select><br><br>
+
+                    <label  for="AMT_INCOME_TOTAL">AMT_INCOME_TOTAL:</label>
+                    <input  type="number" id="AMT_INCOME_TOTAL" name="AMT_INCOME_TOTAL" step="any" required><br><br>
+
+                    <label  for="AMT_GOODS_PRICE">AMT_GOODS_PRICE:</label>
+                    <input  type="number" id="AMT_GOODS_PRICE" name="AMT_GOODS_PRICE" step="any" required><br><br>
+
+                    <label  for="OCCUPATION_TYPE">OCCUPATION_TYPE:</label>
+                    <select id="OCCUPATION_TYPE" name="OCCUPATION_TYPE" required>
+                        <option value="Managers">Managers</option>
+                        <option value="HR staff">HR staff</option>
+                        <option value="Medicine staff">Medicine staff</option>
+                        <option value="Accountants">Accountants</option>
+                        <option value="Laborers">Laborers</option>
+                        <option value="Unknown">Unknown</option>
+                        <option value="Cleaning staff">Cleaning staff</option>
+                        <option value="Private service staff">Private service staff</option>
+                        <option value="Drivers">Drivers</option>
+                        <option value="Sales staff">Sales staff</option>
+                        <option value="Realty agents">Realty agents</option>
+                        <option value="IT staff">IT staff</option>
+                        <option value="Security staff">Security staff</option>
+                        <option value="Secretaries">Secretaries</option>
+                        <option value="Low-skill Laborers">Low-skill Laborers</option>
+                        <option value="Core staff">Core staff</option>
+                        <option value="Cooking staff">Cooking staff</option>
+                        <option value="High skill tech staff">High skill tech staff</option>
+                        <option value="Waiters/barmen staff">Waiters/barmen staff</option>
+                    </select><br><br>
+
+                    <label for="DAYS_EMPLOYED">DAYS_EMPLOYED:</label>
+                    <input type="number" id="DAYS_EMPLOYED" name="DAYS_EMPLOYED" required><br><br>
+                    <label for="BUREAU_LOAN_COUNT">BUREAU_LOAN_COUNT:</label>
+                    <input type="number" id="BUREAU_LOAN_COUNT" name="BUREAU_LOAN_COUNT" required><br><br>
+
+                    <label  for="ACTIVE_LOANS_COUNT">ACTIVE_LOANS_COUNT:</label>
+                    <input  type="number" id="ACTIVE_LOANS_COUNT" name="ACTIVE_LOANS_COUNT" required><br><br>
+
+                    <label for="TOTAL_DAYS_OVERDUE">TOTAL_DAYS_OVERDUE:</label>
+                    <input type="number" id="TOTAL_DAYS_OVERDUE" name="TOTAL_DAYS_OVERDUE" required><br><br>
+
+                    <label  for="TOTAL_CREDIT_SUM">TOTAL_CREDIT_SUM:</label>
+                    <input type="number" id="TOTAL_CREDIT_SUM" name="TOTAL_CREDIT_SUM" step="any" required><br><br>
+
+                    <label for="TOTAL_CREDIT_SUM_DEBT">TOTAL_CREDIT_SUM_DEBT:</label>
+                    <input  type="number" id="TOTAL_CREDIT_SUM_DEBT" name="TOTAL_CREDIT_SUM_DEBT" step="any" required><br><br>
+
+                    <label  for="AMT_CREDIT_SUM_OVERDUE">AMT_CREDIT_SUM_OVERDUE:</label>
+                    <input type="number" id="AMT_CREDIT_SUM_OVERDUE" name="AMT_CREDIT_SUM_OVERDUE" step="any" required><br><br>
+
+                    <label for="MEAN_CREDIT_SUM_LIMIT">MEAN_CREDIT_SUM_LIMIT:</label>
+                    <input type="number" id="MEAN_CREDIT_SUM_LIMIT" name="MEAN_CREDIT_SUM_LIMIT" step="any" required><br><br>
+
+                    <label  for="CREDIT_CARD_LOANS_COUNT">CREDIT_CARD_LOANS_COUNT:</label>
+                    <input type="number" id="CREDIT_CARD_LOANS_COUNT" name="CREDIT_CARD_LOANS_COUNT" required><br><br>
+
+                    <label  for="LOANS_LAST_6_MONTHS">LOANS_LAST_6_MONTHS:</label>
+                    <input  type="number" id="LOANS_LAST_6_MONTHS" name="LOANS_LAST_6_MONTHS" required><br><br>
+
+                    <label  for="LOANS_LAST_9_MONTHS">LOANS_LAST_9_MONTHS:</label>
+                    <input  type="number" id="LOANS_LAST_9_MONTHS" name="LOANS_LAST_9_MONTHS" required><br><br>
+                    <button type="button" onclick="makePrediction()">Predit</button>
+                </form>
+    <h2><pre class="text-danger fw-bold" id="result"></pre></h2>
+
+
+    <!-- <script>
+        function submitForm() {
+            const form = document.getElementById('predictForm');
+            const formData = new FormData(form);
+
+            const data = {};
+            formData.forEach((value, key) => {
+                // Chỉ parseFloat cho các trường số, để giữ nguyên giá trị chuỗi cho các trường khác
+                data[key] = (key === 'CODE_GENDER' || key === 'FLAG_OWN_CAR' || key === 'FLAG_OWN_REALTY' || key === 'NAME_FAMILY_STATUS') 
+                    ? value 
+                    : parseFloat(value);
+            });
+
+            console.log("Dữ liệu gửi đi:", data);
+
+            fetch('/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                document.getElementById('result').textContent = JSON.stringify(result, null, 2);
+            })
+            .catch(error => {
+                document.getElementById('result').textContent = 'Có lỗi xảy ra: ' + error;
+            });
+        }
+    </script> -->
+    <script>
+        async function makePrediction() {
+            
+            const codeGender = document.getElementById('CODE_GENDER').value;
+            const flagOwnCar = (document.getElementById('FLAG_OWN_CAR').value);
+            const flagOwnRealty = (document.getElementById('FLAG_OWN_REALTY').value);
+            const cntChildren = parseFloat(document.getElementById('CNT_CHILDREN').value);
+            const nameFamilyStatus = (document.getElementById('NAME_FAMILY_STATUS').value);
+            const amtIncomeTotal = parseFloat(document.getElementById('AMT_INCOME_TOTAL').value);
+            const amtGoodsPrice = parseFloat(document.getElementById('AMT_GOODS_PRICE').value);
+            const occupationType = (document.getElementById('OCCUPATION_TYPE').value);
+            const daysEmployed = parseFloat(document.getElementById('DAYS_EMPLOYED').value);
+            const bureauLoanCount = parseFloat(document.getElementById('BUREAU_LOAN_COUNT').value);
+            const activeLoansCount = parseFloat(document.getElementById('ACTIVE_LOANS_COUNT').value);
+            const totalDaysOverdue = parseFloat(document.getElementById('TOTAL_DAYS_OVERDUE').value);
+            const totalCreditSum = parseFloat(document.getElementById('TOTAL_CREDIT_SUM').value);
+            const totalCreditSumDebt = parseFloat(document.getElementById('TOTAL_CREDIT_SUM_DEBT').value);
+            const amtCreditSumOverdue = parseFloat(document.getElementById('AMT_CREDIT_SUM_OVERDUE').value);
+            const meanCreditSumLimit = parseFloat(document.getElementById('MEAN_CREDIT_SUM_LIMIT').value);
+            const creditCardLoansCount = parseFloat(document.getElementById('CREDIT_CARD_LOANS_COUNT').value);
+            const loansLast6Months = parseFloat(document.getElementById('LOANS_LAST_6_MONTHS').value);
+            const loansLast9Months = parseFloat(document.getElementById('LOANS_LAST_9_MONTHS').value);
+    
+            
+            const features = {
+                CODE_GENDER: codeGender,
+                FLAG_OWN_CAR: flagOwnCar,
+                FLAG_OWN_REALTY: flagOwnRealty,
+                CNT_CHILDREN: cntChildren,
+                NAME_FAMILY_STATUS: nameFamilyStatus,
+                AMT_INCOME_TOTAL: amtIncomeTotal,
+                AMT_GOODS_PRICE: amtGoodsPrice,
+                OCCUPATION_TYPE: occupationType,
+                DAYS_EMPLOYED: daysEmployed,
+                BUREAU_LOAN_COUNT: bureauLoanCount,
+                ACTIVE_LOANS_COUNT: activeLoansCount,
+                TOTAL_DAYS_OVERDUE: totalDaysOverdue,
+                TOTAL_CREDIT_SUM: totalCreditSum,
+                TOTAL_CREDIT_SUM_DEBT: totalCreditSumDebt,
+                AMT_CREDIT_SUM_OVERDUE: amtCreditSumOverdue,
+                MEAN_CREDIT_SUM_LIMIT: meanCreditSumLimit,
+                CREDIT_CARD_LOANS_COUNT: creditCardLoansCount,
+                LOANS_LAST_6_MONTHS: loansLast6Months,
+                LOANS_LAST_9_MONTHS: loansLast9Months
+            };
+
+            console.log('Features sent to server:', features);
+    
+            try {
+                const response = await fetch('/predict', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(features)
+                });
+
+                const result = await response.json();
+                console.log('Prediction result from server:', result); 
+
+
+                let predictionText = '';
+                if (result.prediction === 0) {
+                    predictionText = 'Trả được nợ';
+                } else if (result.prediction === 1) {
+                    predictionText = 'Không trả được nợ';
+                }
+    
+                // const result = await response.json();
+                // document.getElementById('result').innerText = 'Dự đoán: ' + result.prediction;
+                document.getElementById('result').innerText = 'Kết quả dự đoán: ' + predictionText;
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('result').innerText = 'Có lỗi xảy ra.';
+            }
+        }
+    
+        
+        document.querySelector('button').addEventListener('click', makePrediction);
+    </script>
+    
+</body>
 </html>
+
